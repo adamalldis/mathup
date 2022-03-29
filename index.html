@@ -48,6 +48,31 @@
       <div class="score-info" id="score-remaining">QUESTION: </div>
     </section>
 
+    <section class="modal-container" id="modal-correct">
+      <div class="modal-correct">
+        <h2>YOU ARE</h2><h1>CORRECT</h1>
+        <button class="btn" id="correct-next-btn">NEXT<br>QUESTION</button>
+      </div>
+    </section>
+
+    <section class="modal-container" id="modal-incorrect">
+      <div class="modal-incorrect">
+        <h2>SORRY, THAT IS</h2>
+        <h1>INCORRECT</h1>
+        <h3>You have <span id="guesses-left"></span> </h3>
+        <button class="btn" id="try-again">TRY<br>AGAIN</button>
+      </div>
+    </section>
+
+    <section class="modal-container" id="modal-answer-given">
+      <div class="modal-incorrect">
+        <h2>SORRY, THAT IS</h2>
+        <h1>INCORRECT</h1>
+        <h3 id="answer-given"></h3>
+        <button class="btn" id="answer-next-btn">NEXT<br>QUESTION</button>
+      </div>
+    </section>
+
   </div>
 
   <script src="src/mathup.js"></script>

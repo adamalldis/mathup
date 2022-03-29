@@ -14,8 +14,12 @@ button6 = document.querySelector("#button6"),
 button7 = document.querySelector("#button7"),
 button8 = document.querySelector("#button8"),
 button9 = document.querySelector("#button9"),
-enterEl = document.querySelector("#button-enter");
+enterEl = document.querySelector("#button-enter"),
 deleteEl = document.querySelector("#button-delete");
+
+// for (let i = 0; i < 10; i++) {
+//   const button + i = document.querySelector("#button0");
+//   }
 
 // listen for clicks on each button
 button0.addEventListener("click", function() { answerEl.value += 0; });
@@ -31,48 +35,49 @@ button9.addEventListener("click", function() { answerEl.value += 9; });
 
 // get a random numbers from 0-9 for both parts of the equation
 function setNumbers() {
-  if (gameOver === false) {
+  if (gameOver === true) {
+    alert("The game is over!")
+  } else {
     num1El.value = Math.floor(Math.random() * 10);
     num2El.value = Math.floor(Math.random() * 10);
     answerEl.value = null;
-  } else {
-    alert("The game is over!")
   }
 }
 
 // set the guess limit
-let guesses = 3;
+let guesses = 2;
 
 // input answer and see if its correct
 enterEl.addEventListener("click", function() {
-  if (Number(answerEl.value) === Number(num1El.value) + Number(num2El.value)) {
-    alert("That is CORRECT!")
-    updateStats();
-    setNumbers();
-  } else if (guesses > 1){
-    guesses--;
-    alert("Sorry, that is incorrect. You have " + guesses + " guesses left.");
+  if (Number(answerEl.value) === Number(num1El.value) + Number(num2El.value) && gameOver === false) {
+    modalCorrect.classList.add("modal-visible");
+  } else if (guesses > 0) {
+    modalIncorrect.classList.add("modal-visible");
+      if (guesses > 1) {
+        guessesLeft.textContent = guesses + " guesses left.";
+      } else {
+        guessesLeft.textContent = guesses + " guess left.";        
+      }
     answerEl.value = null;
   } else {
-    alert("Sorry, the answer is: " + (Number(num1El.value) + Number(num2El.value)));
-    updateStats();
-    setNumbers();
+    modalAnswerGiven.classList.add("modal-visible");
+    answerGiven.textContent = "The answer was " + (Number(num1El.value) + Number(num2El.value));
     guesses = 3;
   }
   }
 );
 
 // initialize the footer stats
+let 
+scoreCorrectNum = 0,
+scoreIncorrectNum = 0,
+scoreRemainingNum = 1,
+gameOver = false;
+
 const 
 scoreCorrectEl = document.querySelector("#score-correct"),
 scoreIncorrectEl = document.querySelector("#score-incorrect"),
 scoreRemainingEl = document.querySelector("#score-remaining");
-
-let 
-scoreCorrectNum = 0,
-scoreIncorrectNum = 0,
-scoreRemainingNum = 0,
-gameOver = false;
 
 scoreCorrectEl.textContent = "CORRECT: " + scoreCorrectNum;
 scoreIncorrectEl.textContent = "INCORRECT: " + scoreIncorrectNum;
@@ -83,6 +88,8 @@ scoreRemainingEl.textContent = "QUESTION: " + scoreRemainingNum + " / 10";
 function updateStats() {
   if (scoreRemainingNum < 3) {
     scoreRemainingNum++;
+    scoreCorrectEl.textContent = "CORRECT: " + scoreCorrectNum;
+    scoreIncorrectEl.textContent = "INCORRECT: " + scoreIncorrectNum;
     scoreRemainingEl.textContent = "QUESTION: " + scoreRemainingNum + " / 10";
   } else {
     gameOver = true;
@@ -99,8 +106,39 @@ deleteEl.addEventListener("click", function() {
   }
 );
 
+// MODALS
 
+const modalCorrect = document.querySelector("#modal-correct");
+const modalIncorrect = document.querySelector("#modal-incorrect");
+const modalAnswerGiven = document.querySelector("#modal-answer-given");
+const nextBtn = document.querySelector("#correct-next-btn");
+const answerBtn = document.querySelector("#answer-next-btn");
+const tryAgainBtn = document.querySelector("#try-again");
+const guessesLeft = document.querySelector("#guesses-left");
+const answerGiven = document.querySelector("#answer-given");
 
+nextBtn.addEventListener("click", function() {
+  modalCorrect.classList.remove("modal-visible");
+  scoreCorrectNum++;
+  updateStats();
+  setNumbers();
+});
+
+tryAgainBtn.addEventListener("click", function() {
+  modalIncorrect.classList.remove("modal-visible");
+  guesses--;
+});
+
+answerBtn.addEventListener("click", function() {
+  modalAnswerGiven.classList.remove("modal-visible");
+  scoreIncorrectNum++;
+  updateStats();
+  setNumbers();
+});
+
+// THIS IS HOW YOU ADD AND REMOVE A CLASS FROM AN HTML ELEMENT (modal is the ID)
+// modal.classList.add("modal-visible");
+// modal.classList.remove("modal-visible");
 
 
 

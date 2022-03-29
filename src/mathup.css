@@ -10,12 +10,15 @@
 h1 {
   font-size: 5rem;
   color: rgb(157, 0, 255);
+  text-shadow: 0.25rem 0.25rem 0.5rem rgba(0, 0, 0, 0.5);
+  /* transform: skewX(-10deg); */
 }
 
 h2 {
   font-size: 3rem;
   margin-bottom: 0;
   color: rgb(144, 127, 255);
+  text-shadow: 0.15rem 0.15rem 0.25rem rgba(0, 0, 0, 0.25);
 }
 
 .container {
@@ -38,9 +41,10 @@ h2 {
   align-items: center;
   justify-content: center;
   width: 560px;
-  /* margin: 2rem; */
   margin-top: 1rem;
   padding: 2rem;
+  border: 0.5rem solid #000;
+  box-shadow: 0.5rem 0.5rem 1rem rgba(0, 0, 0, 0.5);
   border-radius: 2rem;
 }
 
@@ -50,7 +54,7 @@ h2 {
   align-items: center;
   width: 26rem;
   border-radius: 5rem;
-  border: 0.75rem solid rgb(187, 178, 252);
+  border: 0.5rem solid #FFF;
   background-color: rgb(144, 127, 255);
 }
 
@@ -83,7 +87,7 @@ h2 {
   height: 9rem;
   margin: 2rem;
   border-radius: 5rem;
-  border: 0.75rem solid rgb(187, 178, 252);
+  border: 0.5rem solid #FFF;
   background-color: rgb(144, 127, 255);
   color: #000;
   font-size: 6rem;
@@ -165,4 +169,77 @@ h2 {
   margin: 1rem 1.5rem;
   font-weight: 700;
   font-size: 1.25rem;
+  color: rgb(114, 93, 255);
+}
+
+/* ===================================================
+                       MODALS
+=================================================== */
+
+.modal-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: 250ms opacity ease-in;
+}
+
+.modal-correct {
+  width: 30rem;
+  height: 20rem;
+  background-color: rgba(255, 255, 255, 0.85);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1rem;
+  box-shadow: 0.5rem 0.5rem 1rem rgba(0, 0, 0, 0.5);
+}
+
+.modal-incorrect {
+  width: 30rem;
+  height: 20rem;
+  background-color: rgba(255, 255, 255, 0.85);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1rem;
+  box-shadow: 0.5rem 0.5rem 1rem rgba(0, 0, 0, 0.5);
+}
+
+.modal-answer-given {
+  width: 30rem;
+  height: 20rem;
+  background-color: rgba(255, 255, 255, 0.85);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1rem;
+  box-shadow: 0.5rem 0.5rem 1rem rgba(0, 0, 0, 0.5);
+}
+
+.modal-visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.btn {
+  width: 10rem;
+  height: 4rem;
+  font-size: 1.5rem;
+  line-height: 1.5rem;
+  font-weight: 700;
+  margin: 2rem;
+  background-color: rgb(119, 0, 255);
+  color: rgb(255, 255, 255);
+  border: 0;
+  border-radius: 0.5rem;
 }
