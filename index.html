@@ -27,7 +27,6 @@
       <input type="number" class="answer" placeholder="?" />
     </div>
     <div class="numbers-container">
-      <div class="button" id="button0">0</div>
       <div class="button" id="button1">1</div>
       <div class="button" id="button2">2</div>
       <div class="button" id="button3">3</div>
@@ -37,6 +36,7 @@
       <div class="button" id="button7">7</div>
       <div class="button" id="button8">8</div>
       <div class="button" id="button9">9</div>
+      <div class="button" id="button0">0</div>
       <div class="enter-button" id="button-enter">ENTER</div>
       <div class="delete-button button" id="button-delete"><i class="fa-solid fa-delete-left"></i></div>
     </div>
@@ -51,7 +51,7 @@
     <section class="modal-container" id="modal-correct">
       <div class="modal-correct">
         <h2>YOU ARE</h2><h1>CORRECT</h1>
-        <button class="btn" id="correct-next-btn">NEXT<br>QUESTION</button>
+        <button class="btn" id="correct-next-btn">NEXT</button>
       </div>
     </section>
 
@@ -69,7 +69,21 @@
         <h2>SORRY, THAT IS</h2>
         <h1>INCORRECT</h1>
         <h3 id="answer-given"></h3>
-        <button class="btn" id="answer-next-btn">NEXT<br>QUESTION</button>
+        <button class="btn" id="answer-next-btn">NEXT</button>
+      </div>
+    </section>
+
+    <section class="modal-container" id="modal-game-over">
+      <div class="modal-game-over">
+        <h1 class="accolation">PERFECT</h1>
+        <h2>YOU GOT<br><span class="correct-answers"></span> OUT OF 10<br>CORRECT</h2>
+      </div>
+    </section>
+
+    <section class="modal-container" id="modal-no-answer">
+      <div class="modal-no-answer">
+        <h2>Enter<br>Answer</h2>
+        <button class="btn btn-x" id="no-answer-btn">X</button>
       </div>
     </section>
 

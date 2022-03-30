@@ -11,12 +11,12 @@ h1 {
   font-size: 5rem;
   color: rgb(157, 0, 255);
   text-shadow: 0.25rem 0.25rem 0.5rem rgba(0, 0, 0, 0.5);
-  /* transform: skewX(-10deg); */
 }
 
 h2 {
   font-size: 3rem;
   margin-bottom: 0;
+  text-align: center;
   color: rgb(144, 127, 255);
   text-shadow: 0.15rem 0.15rem 0.25rem rgba(0, 0, 0, 0.25);
 }
@@ -226,6 +226,44 @@ h2 {
   box-shadow: 0.5rem 0.5rem 1rem rgba(0, 0, 0, 0.5);
 }
 
+.modal-game-over {
+  width: 30rem;
+  height: 20rem;
+  background-color: rgba(255, 255, 255, 0.85);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1rem;
+  box-shadow: 0.5rem 0.5rem 1rem rgba(0, 0, 0, 0.5);
+}
+
+.correct-answers {
+  font-size: 3rem;
+  margin-bottom: 0;
+  color: rgb(144, 127, 255);
+  text-shadow: 0.15rem 0.15rem 0.25rem rgba(0, 0, 0, 0.25);
+}
+
+.modal-no-answer {
+  position: relative;
+  width: 18rem;
+  height: 12rem;
+  background-color: rgba(255, 255, 255, 0.85);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1rem;
+  box-shadow: 0.5rem 0.5rem 1rem rgba(0, 0, 0, 0.5);
+}
+
+.accolations {
+  font-size: 5rem;
+  color: rgb(157, 0, 255);
+  text-shadow: 0.25rem 0.25rem 0.5rem rgba(0, 0, 0, 0.5);
+}
+
 .modal-visible {
   opacity: 1;
   pointer-events: auto;
@@ -242,4 +280,158 @@ h2 {
   color: rgb(255, 255, 255);
   border: 0;
   border-radius: 0.5rem;
+}
+
+.btn-x {
+  width: 2rem;
+  height: 2rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-weight: 700;
+  margin: 1rem;
+  background-color: rgb(119, 0, 255);
+  color: rgb(255, 255, 255);
+  border: 0;
+  border-radius: 0.5rem;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+/* ===================================================================================
+                                                              MEDIA QUERIES
+   =================================================================================== */
+
+@media only screen and (max-width: 600px)  {
+  
+  h1 {
+    font-size: 4rem;
+  }
+  
+  h2 {
+    font-size: 2rem;
+  }
+
+  .container {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .game-container {
+    width: 350px;
+    border: 0.35rem solid #000;
+    box-shadow: 0.35rem 0.35rem .85rem rgba(0, 0, 0, 0.5);
+  }
+  
+  .question-container {
+    width: 18rem;
+    height: 6rem;
+    border-radius: 3rem;
+    border: 0.35rem solid #FFF;
+    padding-bottom: 4px;
+  }
+  
+  .num-block {
+    width: 3rem;
+    border: none;
+    background-color: rgba(0, 0, 0, 0);
+    font-size: 4rem;
+    font-weight: 700;
+    text-align: center;
+    color: #000;
+    margin: 0;
+  }
+  
+  .operator {
+    width: 3rem;
+    font-size: 4rem;
+  }
+  
+  .answer {
+    width: 18rem;
+    height: 6rem;
+    font-size: 5rem;
+    border-radius: 3rem;
+    border: 0.35rem solid #FFF;
+    padding-bottom: 6px;
+  }
+  
+  ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    font-size: 4.5rem;
+    color: #000;
+    opacity: 1; /* Firefox */
+  }
+  
+  :-ms-input-placeholder { /* Internet Explorer 10-11 */
+    font-size: 4.5rem;
+    color: #000;
+  }
+  
+  ::-ms-input-placeholder { /* Microsoft Edge */
+    font-size: 4.5rem;
+    color: #000;
+  }
+  
+  .button {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 2rem;
+    font-size: 2rem;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+  }
+  
+  .enter-button {
+    width: 9rem;
+    height: 4rem;
+    border-radius: 2rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 10px 5px;
+  }
+  
+  .delete-button {
+    width: 6rem;
+    height: 3rem;
+    border-radius: 2.5rem;
+    background-color: rgb(187, 178, 252);
+    border: 5px solid #FFF;
+    font-size: 2rem;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-right: 7px;
+  
+  }
+  
+  .numbers-container {
+    width: 250px;
+    grid-template-columns: repeat(3, 6rem);
+    grid-template-rows: repeat(3, 6rem);
+    justify-content: space-evenly;
+    align-items: center;
+  }
+
+  .modal-correct {
+    width: 20rem;
+    height: 18rem;
+    background-color: rgba(255, 255, 255, 0.85);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1rem;
+    box-shadow: 0.5rem 0.5rem 1rem rgba(0, 0, 0, 0.5);
+  }
+
+
+
+
+  
 }
