@@ -1,7 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap'); */
+
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
 
 :root {
-  --clr-primary: rgb(118, 169, 219);
+  --clr-primary: rgb(155, 196, 237);
   --clr-secondary: rgb(193, 211, 230);
   --clr-btn: rgb(0, 120, 249);
 }
@@ -10,7 +12,8 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: 'Ubuntu', sans-serif;
+  font-family: 'Varela Round', sans-serif;
+  font-weight: bolder;
 }
 
 h1 {
@@ -25,10 +28,15 @@ h2 {
   color: #FFF;
 }
 
+img {
+  width: 100%;
+  object-fit: cover;
+}
+
 .container {
   display: flex;
   flex-flow: column nowrap;
-  justify-content: flex-start;
+  justify-content: space-evenly;
   align-items: center;
   width: 100vw;
   height: 100vh;
@@ -43,6 +51,55 @@ h2 {
   width: 100%;
   padding-bottom: 1rem;
 }
+
+.game-title {
+  padding: 10px 10px 0 10px;
+}
+
+/* ========================================
+             TIMER COUNTDOWN
+=========================================*/
+
+.container-countdown {
+  position: relative;
+  display: flex;
+  flex-flow: row nowrap;
+  padding: 0.25rem;
+  width: 80%;
+  height: 30px;
+  border: 3px solid var(--clr-btn);
+  border-radius: 15px;
+  background-color: #FFF;
+  margin-top: 1rem;
+}
+
+.notch-blue {
+  width: 10%;
+  height: 1rem;
+  background-color: var(--clr-btn);
+}
+
+.notch-red {
+  width: 10%;
+  height: 1rem;
+  background-color: red;
+}
+
+.left-round {
+  border-radius: 15px 0 0 15px;
+}
+
+.right-round {
+  border-radius: 0 15px 15px 0;
+}
+
+.hide {
+  display: none;
+}
+
+/* ========================================
+             TIMER COUNTDOWN
+=========================================*/
 
 .game-container {
   display: flex;
@@ -66,19 +123,33 @@ h2 {
   height: 6rem;
   border-radius: 1rem;
   border: 0.25rem solid var(--clr-btn);
-  padding-bottom: 4px;
   background-color: var(--clr-secondary);
 }
 
-.num-block {
-  width: 4.5rem;
+.num-block-left {
+  width: 5rem;
   border: none;
   background-color: rgba(0, 0, 0, 0);
   font-size: 4rem;
   font-weight: 700;
-  text-align: center;
+  text-align: right;
   color: #000;
   margin: 0;
+}
+
+.num-block-right {
+  width: 5rem;
+  border: none;
+  background-color: rgba(0, 0, 0, 0);
+  font-size: 4rem;
+  font-weight: 700;
+  text-align: left;
+  color: #000;
+  margin: 0;
+}
+
+.num1, .num2 {
+  color: #000;
 }
 
 .operator {
@@ -115,24 +186,24 @@ h2 {
   font-size: 4rem;
   font-weight: 700;
   text-align: center;
-  color: #000;
+  color: var(--clr-btn);
   border-radius: 1rem;
 }
 
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
   font-size: 4.5rem;
-  color: #000;
+  color: var(--clr-btn);
   opacity: 1; /* Firefox */
 }
 
 :-ms-input-placeholder { /* Internet Explorer 10-11 */
   font-size: 4.5rem;
-  color: #000;
+  color: var(--clr-btn);
 }
 
 ::-ms-input-placeholder { /* Microsoft Edge */
   font-size: 4.5rem;
-  color: #000;
+  color: var(--clr-btn);
 }
 
 .numbers-container {
@@ -192,14 +263,14 @@ h2 {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
-  line-height: 1.25rem;
+  line-height: 0.5rem;
   padding: 0.75rem 0;
 }
 
 .score-text {
   margin: 0.5rem 1rem;
   font-weight: 700;
-  font-size: 1.5rem;
+  font-size: 1rem;
   color: #000;
 }
 
@@ -295,6 +366,18 @@ h2 {
 }
 
 .modal-incorrect {
+  width: 90%;
+  height: 20rem;
+  background-color: rgba(255, 255, 255, 1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1rem;
+  box-shadow: 0.5rem 0.5rem 1rem rgba(0, 0, 0, 0.5);
+}
+
+.modal-times-up {
   width: 90%;
   height: 20rem;
   background-color: rgba(255, 255, 255, 1);
