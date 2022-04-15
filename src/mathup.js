@@ -40,9 +40,10 @@ let guesses = 2;
 
 // countdown timer
 const countdownEl = document.querySelector(".container-countdown");
-const notchEl = document.querySelectorAll(".notch");
+
 
 function countdown() {
+  const notchEl = document.querySelectorAll(".notch");
   if (count > 3) {
     countdownEl.removeChild(countdownEl.lastElementChild);
     count--;
@@ -108,7 +109,7 @@ enterEl.addEventListener("click", function() {
       answerEl.value = null;
     } else {
       modalAnswerGiven.classList.add("modal-visible");
-      answerGiven.textContent = "The answer was " + (Number(num1El.value) + Number(num2El.value));
+      answerGiven.textContent = "The answer was " + (Number(num1El.value) * Number(num2El.value));
       guesses = 2;
   }
   }
